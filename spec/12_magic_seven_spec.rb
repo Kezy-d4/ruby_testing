@@ -70,34 +70,67 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when result of previous step is 12' do
+      it 'returns 8' do 
+        previous_result = 12
+        result = game.subtract_four(previous_result)
+        expect(result).to eq(8)
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when result of previous step is 20' do
+      it 'returns 10' do
+        previous_result = 20
+        result = game.divide_by_two(previous_result)
+        expect(result).to eq(10)
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    context 'when previous result is 14 and random number is 7' do
+      it 'subtracts random number from previous result to return 7' do
+        previous_result = 14
+        random_number = 7
+        rng = described_class.new(random_number)
+        result = rng.subtract_random_number(previous_result)
+        expected = 7
+        expect(result).to eq(expected)
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
+    context 'when the random number is 0' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        random_number = 0
+        rng = described_class.new(random_number)
+        expect(rng.play).to eq(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is -1' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        random_number = -1
+        rng = described_class.new(random_number)
+        expect(rng.play).to eq(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 155782' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        random_number = 155782
+        rng = described_class.new(random_number)
+        expect(rng.play).to eq(7)
       end
     end
   end
